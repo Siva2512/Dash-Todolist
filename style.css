@@ -65,6 +65,8 @@ body {
 }
 
 /* PROJECTS */
+
+/* Project select */
 .projects h4 {
   color: #a6b3c4;
 }
@@ -147,7 +149,7 @@ body {
   align-items: center;
   border-bottom: 1px solid rgb(237, 237, 237);
   gap: 10px;
-  width: 60%;
+  width: 100%;
 }
 
 
@@ -335,6 +337,45 @@ body {
   display: flex;
   gap: 10px;
   position: relative;
+}
+.update-status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+    min-width: 85px;
+    text-align: center;
+}
+
+.update-status.complete {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #10b981;
+}
+
+.update-status.progress {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1px solid #f59e0b;
+}
+
+.update-status.pending {
+    background-color: #fee;
+    color: #b91c1c;
+    border: 1px solid #ef4444;
+}
+.change div{
+   height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 10px;
+    border-radius: 3px;
+    position: relative;
 }
 
 /* ICONS */
@@ -654,9 +695,12 @@ body {
   height: 100%;
   background: rgba(0,0,0,0.45);
   margin: auto;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  z-index:999;
+  z-index:3000;
+  overflow-y: scroll;
+
+  
 }
 
 /* SHOW MODAL */
@@ -667,6 +711,7 @@ body {
 /* MODAL BOX */
 .task-modal-content {
   width:90%;
+  max-height: calc(100vh-100px);
   max-width: 700px;
   margin: 0 auto;
   position: relative;
@@ -674,7 +719,8 @@ body {
   border-radius: 14px;
   padding: 35px 40px 40px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  overflow-y: auto;
+  overflow-y: scroll;
+    margin: 20px 0;
 }
 
 /* CLOSE ICON */
@@ -682,6 +728,37 @@ body {
   cursor: pointer;
   font-size: 18px;
 }
+
+/* Toast Styles */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #0074eb;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all 0.5s ease;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast i {
+    font-size: 18px;
+}
+
 
 
 
@@ -708,7 +785,7 @@ body {
   }
 
   .main {
-    width: calc(100% - 220px);
+    width: 100%;
   }
 
   .welcome {
@@ -769,7 +846,7 @@ body {
 
   /* main full width */
   .main {
-    width: 100%;
+    width: 80%;
   }
 
   .welcome {
