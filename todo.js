@@ -699,10 +699,10 @@ console.log("editIndexbefore", editIndex);
 
 const updatedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-// renderDynamicToday(getTodayTasks(updatedTasks));
-// renderUpcoming();
-// updateProgressBar(true);
-// updateTodayTaskCount();
+renderDynamicToday(getTodayTasks(updatedTasks));
+renderUpcoming();
+updateProgressBar(true);
+updateTodayTaskCount();
 
 closeTaskModal();
 showToast(editIndex ? "Task updated successfully!" : "Task created successfully!");
@@ -775,6 +775,7 @@ if (addTaskBtn && modal) {
     modal.classList.add("show");
   });
 }
+
 document.getElementById("closeModal")?.addEventListener("click", () => {
   modal.classList.remove("show");
 });
